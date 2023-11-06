@@ -1,0 +1,139 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    color: seashell;
+    background-color: black;
+    opacity: 0.9;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+header {
+    background-color: black;
+    height: 69px;
+    width: 100%;
+    border-bottom: 1px solid seashell;
+    display: inline-flex;
+    justify-content: space-between;
+    position: fixed;
+}
+.notheaderblock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 69px;
+}
+.logo {
+    height: 50px;
+    margin-left: 10px;
+}
+.menu {
+  margin-right: 10px;
+}
+.menu li {
+    list-style-type: none;
+    display: inline;
+    width: fit-content;
+}
+.menu a {
+    text-decoration: underline;
+    color: seashell;
+}
+div#mission {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.background {
+    background-image: url("../img-mission-background.jpg");
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    align-items: center;
+}
+.statement {
+    background-color: black;
+    width: 100%;
+}
+div#featured { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contents {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div#teas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 25px;
+}
+div#teas h4 {
+    margin: 10px 0;
+}
+#berryblitz, #bedfordbiz, #donut, #myrtleave, #spicedrum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.berryblitz, .bedfordbiz, .donut, .myrtleave, .spicedrum {
+    height: 200px;
+    width: 300px;
+}
+div#locations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.locbackground {
+    background-image: url("../img-locations-background.jpg");
+    width: 1200px;
+    height: 500px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.locbackground h2 {
+    margin: 15px 0px;
+}
+.locblocks {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px
+}
+.loc {
+    width: 300px;
+    text-align: center;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.contact {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    justify-content: left;
+}
+footer h5 {
+    margin-left: 20px;
+    text-align: left;
+}

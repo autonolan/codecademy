@@ -1,0 +1,142 @@
+/*Universal Styles*/
+html {
+    font-size: 16;
+}
+
+.center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image, .employee-image {
+    overflow: hidden;
+}
+
+.product-image img, .employee-image img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/*Header*/
+header {
+    width: 100%;
+    border: 1px solid black;
+    background-color: white;
+    position: fixed;
+    z-index: 5;
+}
+
+header .content {
+    display: flex;
+    align-items: center;
+    padding: 1.875rem;
+}
+
+header .logo {
+    flex: 1;
+}
+
+header nav ul {
+    display: flex;
+}
+
+nav li {
+    padding-left: 3.5rem;
+}
+
+.main-content {
+    position: relative;
+    top: 4.85rem;
+}
+
+/*Mission*/
+#mission-section {
+    height: 43.5rem;
+    background-image: url("../images/mission-background.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;*/
+}
+/*
+#mission-section {
+    display:flex;
+    justify-content: center;
+}
+*/
+
+#mission-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 33%;
+}
+
+#mission-section .content {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mission-section h2 {
+    font-size: 4rem;
+}
+
+#mission-section h3 {
+    font-size: 2rem;
+}
+
+/*Products*/
+
+#products-section {
+    background-color: lightgray;
+}
+
+.products-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product {
+    flex: 1;
+    margin: 3em;
+}
+
+.product .product-image {
+    height: 65%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*About*/
+
+.about-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.employee-image {
+    height: auto;
+    width: 200px;
+    margin: 0 auto;
+}
+
+/*footer*/
+footer {
+    margin: 0 auto;
+    text-align: center;
+    background-color: burlywood;
+}

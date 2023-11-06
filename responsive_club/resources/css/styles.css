@@ -1,0 +1,234 @@
+/*Universal styles*/
+@font-face {
+    font-family: "Monster Pumpkin";
+    src: url("../fonts/MonsterPumpkin-MVBzP.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pumpkin Hunter";
+    src: url("../fonts/PumpkinHunter-OV8rA.ttf") format("truetype"),
+         url("../fonts/Pumpkinhunter-Ea0g4.otf") format("opentype");
+}
+@font-face {
+    font-family: "October Twilight";
+    src: url("../fonts/OctoberTwilight-Ooe6.ttf") format("truetype"),
+         url("../fonts/Octobertwilight-lzwZ.otf") format("opentype");
+}
+@font-face {
+    font-family: "Gravedigger";
+    src: url("../fonts/GravediggerPersonalUse-K7ayW.ttf") format("truetype");
+}
+html {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.center {
+    text-align: center;
+}
+.main-content {
+    position: relative;
+    top: 5.3125rem;
+}
+td {
+    padding: 1rem;
+}
+thead {
+    font-size: 2rem;
+}
+tbody {
+    font-size: 1.75rem;
+}
+/*Header*/
+header {
+    position: fixed;
+    width: 100%;
+    height: 5.3125rem;
+    background-color: white;
+    z-index: 5;
+}
+header h1 {
+    font-size: 4rem;
+    font-family: 'Monster Pumpkin';
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+}
+header .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    width: auto;
+    height: 5.3125rem;
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+nav li {
+    padding-left: 2rem;
+}
+header .mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    #club-name {
+        display: none;
+    }
+}
+@media only screen and (max-width: 450px) {
+    header .desktop {
+        display: none;
+    }
+    header .mobile {
+        display: block;
+        width: 100%;
+    }
+    header .mobile ul li a img {
+        width: 45px;
+    }
+    nav li {
+        padding-left: 1rem;
+    }
+}
+/*What we do*/
+#what {
+    background-image: url("../images/banner.jpg");
+    background-size: cover;
+    background-position: bottom;
+    height: 45rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#what-box {
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 171px;
+    left: 10%;
+    padding: 0 5rem 2.5rem 5rem;
+}
+#what-box .content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
+#what h1 {
+    font-size: 3rem;
+    font-family: "October Twilight";
+}
+#what h2 {
+        font-size: 2rem;
+        font-family: 'Gravedigger';
+}
+#email-submission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em auto;
+}
+@media only screen and (max-width: 450px) {
+    #what {
+        justify-content: center;
+        align-items: center;
+    }
+    #what-box {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+}
+/*Membership Benefits*/
+#benefits {
+    background-color: plum;
+    display: flex;
+}
+#benefits-box {
+    flex: 1;
+    margin: 1rem;
+}
+#benefits h2 {
+    font-size: 2rem;
+    font-family: "October Twilight";
+}
+#benefits-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#benefits h3 {
+    font-family: 'Pumpkin Hunter';
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    width: 200px;
+}
+/*Events*/
+#events {
+    display: flex;
+}
+#events h2 {
+    font-size: 2rem;
+    font-family: "October Twilight";
+}
+#events-box {
+    flex: 1;
+    margin: 1rem;
+}
+#events table {
+    margin: 0 auto;
+    font-family: 'Pumpkin Hunter';
+}
+#events ul {
+    margin: 0.5rem;
+}
+#events li {
+    font-family: 'Pumpkin Hunter';
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+#events #table-mobile {
+    display: none;
+}
+@media only screen and (max-width: 450px) {
+    #events #table-desktop {
+        display: none;
+    }
+    #events #table-mobile {
+        display: block;
+    }
+}
+/*Contacts*/
+#contact {
+    background-image: url("../images/contact-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#contact .content {
+    display: flex;
+    background-color: plum;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+#contact h2 {
+    font-family: 'October Twilight';
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 1rem;
+}
+#contact h3 {
+    font-family: 'Pumpkin Hunter';
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin: 1rem;
+}
