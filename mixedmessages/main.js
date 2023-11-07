@@ -44,6 +44,7 @@ const liquidHandlerMessages = {
 };
 
 var lastProgress;
+var lastOperation;
 var runLength = 15;
 
 const getProgressMessage = () => {
@@ -65,9 +66,21 @@ const getProgressMessage = () => {
 
     return lastProgress;
 };
+const getOperationMessage = () => {
+    if (lastOperation === 'aspirate') {
+        lastOperation = 'dispense';
+    } else if (lastOperation === 'tip eject') {
+        lastOperation = 'tip pickup';
+    } else {
+        lastOperation = liquidHandlerMessages.randOperation;
+    }
+
+    return lastOperation;
+}
 const generateMessage = (step) => {
     let currentProgress = getProgressMessage();
-    return `Step ${step}: ${currentProgress}`;
+    let currentOperation = getOperationMessage();
+    return `Step ${step}: ${currentProgress} ${currentOperation}`;
 };
 
 for (let step = 1; step < runLength; step++) {
