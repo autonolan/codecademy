@@ -32,16 +32,44 @@ const liquidHandlerMessages = {
         'tube',
         'trough',
     ],
-    get progress () {
+    get randProgress () {
         return this._progress[Math.floor(Math.random() * this._progress.length)];
     },
-    get operation () {
+    get randOperation () {
         return this._operation[Math.floor(Math.random() * this._operation.length)];
     },
-    get location () {
+    get randLocation () {
         return this._location[Math.floor(Math.random() * this._location.length)];
     }
-}
-const generateMessage = () => {
-    return
+};
+
+var lastProgress;
+var runLength = 15;
+
+const getProgressMessage = () => {
+    if (lastProgress === 'starting') {
+        do {
+            lastProgress = liquidHandlerMessages.randProgress;
+        } while (lastProgress === 'starting');
+    } else if (lastProgress === 'in error') {
+        do {
+            lastProgress = liquidHandlerMessages.randProgress;
+        } while (!(lastProgress === 'error cleared' || lastProgress === 'failed'));
+    } else if (lastProgress === 'waiting') {
+        do {
+            lastProgress = liquidHandlerMessages.randProgress;
+        } while (!(lastProgress === 'waiting' || lastProgress === 'completed'));
+    } else {
+        lastProgress = liquidHandlerMessages.randProgress;
+    }
+
+    return lastProgress;
+};
+const generateMessage = (step) => {
+    let currentProgress = getProgressMessage();
+    return `Step ${step}: ${currentProgress}`;
+};
+
+for (let step = 1; step < runLength; step++) {
+    console.log(generateMessage(step));
 }
