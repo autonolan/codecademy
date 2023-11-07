@@ -45,6 +45,7 @@ const liquidHandlerMessages = {
 
 var lastProgress;
 var lastOperation;
+var lastLocation;
 var runLength = 15;
 
 const getProgressMessage = () => {
@@ -77,10 +78,27 @@ const getOperationMessage = () => {
 
     return lastOperation;
 }
+const getLocationMessage = () => {
+    lastLocation = 'at' + ' ' + liquidHandlerMessages.randLocation + ' ' + (Math.floor(Math.random() * 96) +1);
+    return lastLocation;
+}
 const generateMessage = (step) => {
-    let currentProgress = getProgressMessage();
-    let currentOperation = getOperationMessage();
-    return `Step ${step}: ${currentProgress} ${currentOperation}`;
+    let currentProgress = '';
+    let currentOperation = '';
+    let currentLocation = '';
+    // Check step number
+    if (step === 1) {
+        currentProgress = 'starting';
+    } else {
+        currentProgress = getProgressMessage();
+    }
+    // Check state
+    if (!currentProgress.includes('error') && !currentProgress.includes('waiting')) {
+        currentOperation = getOperationMessage();
+        currentLocation = getLocationMessage();
+    }
+    //
+    return `Step ${step}: ${currentProgress} ${currentOperation} ${currentLocation}.`;
 };
 
 for (let step = 1; step < runLength; step++) {
