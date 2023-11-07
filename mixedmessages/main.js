@@ -62,7 +62,9 @@ const getProgressMessage = () => {
             lastProgress = liquidHandlerMessages.randProgress;
         } while (!(lastProgress === 'waiting' || lastProgress === 'completed'));
     } else {
-        lastProgress = liquidHandlerMessages.randProgress;
+        do {
+            lastProgress = liquidHandlerMessages.randProgress;
+        } while (lastProgress === 'error cleared');
     }
 
     return lastProgress;
@@ -93,12 +95,12 @@ const generateMessage = (step) => {
         currentProgress = getProgressMessage();
     }
     // Check state
-    if (!currentProgress.includes('error') && !currentProgress.includes('waiting')) {
+    if (!currentProgress.includes('error') && !currentProgress.includes('waiting') && !currentProgress.includes('ready')) {
         currentOperation = getOperationMessage();
         currentLocation = getLocationMessage();
     }
     //
-    return `Step ${step}: ${currentProgress} ${currentOperation} ${currentLocation}.`;
+    return `Step ${step}: ${currentProgress} ${currentOperation} ${currentLocation}`;
 };
 
 for (let step = 1; step < runLength; step++) {
