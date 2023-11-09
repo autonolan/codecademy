@@ -31,6 +31,7 @@ const liquidHandlerMessages = {
         'well',
         'tube',
         'trough',
+        'tip rack',
     ],
     get randProgress () {
         return this._progress[Math.floor(Math.random() * this._progress.length)];
@@ -39,7 +40,7 @@ const liquidHandlerMessages = {
         return this._operation[Math.floor(Math.random() * this._operation.length)];
     },
     get randLocation () {
-        return this._location[Math.floor(Math.random() * this._location.length)];
+        return this._location[Math.floor(Math.random() * this._location.length)] + ' ' + (Math.floor(Math.random() * 96) +1);
     }
 };
 
@@ -81,8 +82,15 @@ const getOperationMessage = () => {
     return lastOperation;
 }
 const getLocationMessage = () => {
-    lastLocation = 'at' + ' ' + liquidHandlerMessages.randLocation + ' ' + (Math.floor(Math.random() * 96) +1);
-    return lastLocation;
+    if (lastOperation.includes('tip pickup')) {
+        do {
+            lastLocation = liquidHandlerMessages.randLocation;
+        } while (!lastLocation.includes('tip rack'));
+    } else {
+        lastLocation =  liquidHandlerMessages.randLocation;
+    }
+    
+    return 'at' + ' ' + lastLocation;
 }
 const generateMessage = (step) => {
     let currentProgress = '';
