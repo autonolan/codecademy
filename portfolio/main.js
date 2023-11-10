@@ -5,8 +5,8 @@ console.log(projectsList);
 function showProject(event) {
     event.target.children[1].style.display = 'block';
     event.target.children[1].style.position = 'absolute';
-    event.target.children[1].style.left = '300px';
-    event.target.children[1].style.top = '300px';
+    event.target.children[1].style.left = '400px';
+    event.target.children[1].style.top = '125px';
     document.getElementById("main-content").style.backgroundColor = 'rgba(0,0,0,0.6)';
 };
 function hideProject() {

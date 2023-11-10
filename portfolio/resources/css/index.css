@@ -1,6 +1,63 @@
+h2 {
+    border-bottom: 1px solid black;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 85px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 5;
+}
+.center {
+    text-align: center;
+}
+header ul {
+    list-style-type: none;
+    display: flex;
+}
+header li {
+    margin-left: 1rem;
+}
+main {
+    position: relative;
+    top: 5.3125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #main-content  {
     background-color: rgba(255, 255, 255, 0);
 }
+#about-me, #projects, #skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#about-me div, #projects div, #skills div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+#portrait {
+    z-index: -1;
+    border: 1px solid black;
+}
 #lhp, #tji, #pst {
     display: none;
+}
+#skills ul {
+    /*list-style-type: none;*/
+    display: flex;
+}
+#skills li {
+    margin: 0 1rem;
 }
