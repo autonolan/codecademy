@@ -44,9 +44,12 @@ function App() {
     };
   const [playlist, setPlaylist] = useState(examplePlaylist);
   const addTrack = (track) => {
-        console.log('updating playlist...');
-        setPlaylist(prev => [...prev, track]);
-    }
+        if (playlist.every(playlistTrack => {
+          return playlistTrack.id !== track.id
+        })) {
+          setPlaylist(prev => [...prev, track]);
+        };
+    };
   return (
     <div className="App">
       <header className="App-header">
