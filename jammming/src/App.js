@@ -43,9 +43,9 @@ function App() {
         console.log(searchResults);
     };
   const [playlist, setPlaylist] = useState(examplePlaylist);
-  const updatePlaylist = () => {
+  const addTrack = (track) => {
         console.log('updating playlist...');
-        setPlaylist(examplePlaylist);
+        setPlaylist(prev => [...prev, track]);
     }
   return (
     <div className="App">
@@ -55,8 +55,8 @@ function App() {
       <div className="App-body">
         <SearchBar handleSearch={handleSearch} />
         <div style={{display: 'flex', flexDirection: 'row'}}>
-          <SearchResults searchResults={searchResults}/>
-          <Playlist updatePlaylist={updatePlaylist} playlist={playlist}/>
+          <SearchResults searchResults={searchResults} addTrack={addTrack} />
+          <Playlist playlist={playlist}/>
         </div>
       </div>
     </div>

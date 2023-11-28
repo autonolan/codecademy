@@ -1,5 +1,8 @@
 import React from 'react';
 
 export default function AddButton(props) {
-    return <button onClick={props.handleClick}>+</button>
+    const clickHandler = () => {
+        props.addTrack(props.track);
+    }
+    return <button onClick={clickHandler}>+</button>
 }

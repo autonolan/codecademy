@@ -11,7 +11,7 @@ export default function Tracklist(props) {
                 return (
                 <>
                   <Track details={track} key={track.id}/>
-                  <AddButton />
+                  <AddButton track={track} addTrack={props.addTrack} />
                 </>
                 )
             })}
