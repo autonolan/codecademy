@@ -37,19 +37,24 @@ const examplePlaylist = [
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-    const handleSearch = (e) => {
+  const handleSearch = (e) => {
         e.preventDefault();
         setSearchResults(exampleSearchData);
         console.log(searchResults);
     };
   const [playlist, setPlaylist] = useState(examplePlaylist);
   const addTrack = (track) => {
-        if (playlist.every(playlistTrack => {
+    if (playlist.every(playlistTrack => {
           return playlistTrack.id !== track.id
         })) {
           setPlaylist(prev => [...prev, track]);
         };
     };
+  const removeTrack = (track) => {
+    setPlaylist(playlist.filter(playlistTrack => {
+      return playlistTrack.id !== track.id
+    }));
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -59,7 +64,7 @@ function App() {
         <SearchBar handleSearch={handleSearch} />
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <SearchResults searchResults={searchResults} addTrack={addTrack} />
-          <Playlist playlist={playlist}/>
+          <Playlist playlist={playlist} removeTrack={removeTrack}/>
         </div>
       </div>
     </div>
