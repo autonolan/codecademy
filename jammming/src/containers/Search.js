@@ -30,7 +30,7 @@ export default function Search() {
         e.preventDefault();
         setSearchResults(exampleSearchData);
         console.log(searchResults);
-    }
+    };
     return (
         <div>
           <SearchBar handleSearch={handleSearch} />
