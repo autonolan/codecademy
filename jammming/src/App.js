@@ -66,6 +66,7 @@ function App() {
     };
   async function retrieveUser(e) {
     e.preventDefault();
+    console.log(auth.access_token);
     let url = 'https://api.spotify.com/v1/me';
     const response = await fetch(url, {method: "GET", headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.access_token}});
     const data = await response.json();
