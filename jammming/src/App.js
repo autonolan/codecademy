@@ -4,12 +4,13 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import SearchResults from './components/SearchResults';
 import Playlist from './components/Playlist';
+import PlaylistName from './components/PlaylistName';
 import getAccessToken from './getAccessToken';
 
 const searchEndpoint='https://api.spotify.com/v1/search?';
 const searchType = 'type=track';
 const auth = await getAccessToken();
-console.log(auth);
+console.log(auth.access_token);
 const exampleSearchData = [
   {
       "name": "Song1",
@@ -45,12 +46,32 @@ const examplePlaylist = [
 ];
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const updateSearchTerm = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+  };
   const [searchResults, setSearchResults] = useState([]);
-  const handleSearch = (e) => {
+  //const [accessToken, setAccessToken] = useState('');
+  //setAccessToken(auth.access_token)
+  async function handleSearch(e) {
         e.preventDefault();
-        setSearchResults(exampleSearchData);
+        let url = searchEndpoint + 'q=' + searchTerm.replaceAll(' ', '+') + '&' + searchType;
+        const response = await fetch(url, {method: "GET", headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.access_token}});
+        const data = await response.json();
+        console.log(data);
+        setSearchResults(data.tracks.items);
+        //setSearchResults(exampleSearchData);
         console.log(searchResults);
     };
+  async function retrieveUser(e) {
+    e.preventDefault();
+    let url = 'https://api.spotify.com/v1/me';
+    const response = await fetch(url, {method: "GET", headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.access_token}});
+    const data = await response.json();
+    console.log(data);
+    //setUserId(data.tracks.items);
+  };
   const [playlist, setPlaylist] = useState(examplePlaylist);
   const addTrack = (track) => {
     if (playlist.every(playlistTrack => {
@@ -81,10 +102,11 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="App-body">
-        <SearchBar handleSearch={handleSearch} />
+        <SearchBar handleSearch={handleSearch} searchTerm={searchTerm} updateSearchTerm={updateSearchTerm}/>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <SearchResults searchResults={searchResults} addTrack={addTrack} />
-          <Playlist playlist={playlist} removeTrack={removeTrack} playlistName={playlistName} updatePlaylistName={updatePlaylistName}/>
+          <PlaylistName playlistName={playlistName} updatePlaylistName={updatePlaylistName} retrieveUser={retrieveUser}/>
+          <Playlist playlist={playlist} removeTrack={removeTrack} />
         </div>
       </div>
     </div>
