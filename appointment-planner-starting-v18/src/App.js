@@ -22,7 +22,7 @@ function App() {
     <Route path="/" element={ <Root/> }>
       <Route index element={ <Navigate to={ROUTES.CONTACTS} replace/> }/>
       <Route path={ROUTES.CONTACTS} element={ <ContactsPage contacts={contacts} addNewContact={addNewContact}/> /* Add props to ContactsPage */ }/>
-      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appts={appts} contacts={contacts} addNewAppt={addNewContact}/> /* Add props to AppointmentsPage */ }/>
+      <Route path={ROUTES.APPOINTMENTS} element={ <AppointmentsPage appts={appts} contacts={contacts} addNewAppt={addNewAppt}/> /* Add props to AppointmentsPage */ }/>
     </Route>
   ));
   
