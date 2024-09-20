@@ -7,10 +7,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Best of Reddit App</h1>
         <Counter />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          uses Reddit JSON Api to only display the all time high from any subreddit and creates a feed of all time all time highs.
+          User can favorite these posts which will be displayed in their favorites section so they immediately see their favorite best of
+          the best. For each post, only the top comment will be displayed. The user will be able to show or hide that comment if they
+          agree or disagree with the comment.
         </p>
         <span>
           <span>Learn </span>
