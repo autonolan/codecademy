@@ -1,6 +1,6 @@
 
 // Import `dotenv` package and call the `config()` function to access the environment variables set within the `.env` file. 
-
+require("dotenv").config();
 
 // Abstract the `createClient` functionality from the `supabase` package. 
 
